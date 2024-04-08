@@ -3,7 +3,7 @@
 mfb_self=${BASH_SOURCE[0]}
 
 function mfb:ls {
-  ls ${mfb_ls_options} "${1}"
+  ${mfb_ls_command} ${mfb_ls_options} "${1}"
 }
 
 function mfb:extract_line {
@@ -41,6 +41,7 @@ function mfb:search {
 }
 
 function mfb {
+    mfb_ls_command=${MFB_LS_COMMAND:-ls}
     mfb_ls_options=${MFB_LS_OPTIONS:---group-directories-first -hla --color}
     mfb_line_index=${MFB_LINE_INDEX:-9}
     mfb_lines_to_skip=${MFB_LINES_TO_SKIP:-3}
@@ -48,6 +49,8 @@ function mfb {
 
     while getopts "l:i:s:p:" option "$@"; do
       case ${option} in
+        c)
+           mfb_ls_command=${OPTARG};;
         l)
            mfb_ls_options=${OPTARG};;
         i)

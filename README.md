@@ -37,6 +37,7 @@ and use the `mfb` command.
 
 | Param | Env var           | description |
 |-------|-------------------|-------------|
+| -c    | MFB_LS_COMMAND    | provide an alternative `ls` command, i.e. `gls` on MacOS |
 | -l    | MFB_LS_OPTIONS    | changes options for `ls` |
 | -i    | MFB_LINE_INDEX    | if you change `MFB_LS_OPTIONS` you'll need to change it accordingly |
 | -s    | MFB_LINES_TO_SKIP | if you change `MFB_LS_OPTIONS` you'll need to change it accordingly |
